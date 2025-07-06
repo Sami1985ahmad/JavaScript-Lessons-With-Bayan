@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome User</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      input {
+        padding: 10px;
+        width: 200px;
+        border: 2px solid #ccc;
+        border-radius: 15px;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        margin-top: 10px;
+        background-color: #4caf50;
+        border: 2px solid #ccc;
+        border-radius: 15px;
+      }
+      h2 {
+        color: #333;
+      }
+      label {
+        font-size: 18px;
+        color: #555;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>أهلاً بك</h2>
+    <form action="" onsubmit="showName (event)">
+      <label>يرجى إدخال اسمك للترحيب بك:</label><br />
+      <input id="inputName" type="text" placeholder="الاسم" /><br />
+      <button id="submitName" type="submit">مرحباً !</button>
+    </form>
+
+    <script>
+      document
+        .getElementById("submitName")
+        .addEventListener("click", function showName(event) {
+          event.preventDefault(); // Prevent form submission
+          const name = document.getElementById("inputName").value;
+          if (name) {
+            alert(`مرحباً، ${name}!`);
+          } else {
+            alert("الرجاء إدخال اسمك.");
+          }
+        });
+    </script>
+  </body>
+</html>

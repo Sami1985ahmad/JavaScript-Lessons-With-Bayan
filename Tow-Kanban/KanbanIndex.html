@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban</title>
+    <style>
+        #kanban {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 20px;
+            padding: 20px;
+        }
+        .column {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+        .cards {
+            margin-top: 10px;
+        }
+        .card {
+            tab-size: 36px;
+            text-transform: capitalize;
+            background-color: #E3D5F0;
+            padding: 10px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .addCard {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .card button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Create a 2-column Kanban to add simple cards through a button. Each card has a 
+delete button; when clicked, the card disappears. -->
+    <div id="kanban">
+        <div class="column" id="Kanban1">
+            <h2>Kanban1 </h2>
+            <button class="addCard" onclick="addCard('Kanban1')">Add Card</button>
+            <div class="cards"></div>
+        </div>
+        <div class="column" id="Kanban2">
+            <h2>Kanban2</h2>
+            <button class="addCard" onclick="addCard('Kanban2')">Add Card</button>
+            <div class="cards"></div>
+        </div>
+    </div>
+
+    <script>
+        function addCard(columnId) {
+            const cardText = prompt("Enter card text:");
+            if (cardText) {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+                    <span>${cardText}</span>
+                    <button onclick="deleteCard(this)">Delete</button>
+                `;
+                document.querySelector(`#${columnId} .cards`).appendChild(card);
+            }
+        }
+
+        function deleteCard(button) {
+            button.parentElement.remove();
+        }
+    </script>
+
+</body>
+</html>
