@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mouse Enter Background Change</h1>
+    <p>Hover over the box below to change its background color</p>
+    <div id="colorBox" style="width: 200px; height: 200px; background-color: lightblue;"></div>
+    <script>
+        const colorBox = document.getElementById("colorBox");
+        colorBox.addEventListener("mouseenter", function() {
+            colorBox.style.backgroundColor = "lightcoral";
+        });
+        colorBox.addEventListener("mouseleave", function() {
+            colorBox.style.backgroundColor = "lightblue";
+        });
+    </script>
+</body>
+</html>
